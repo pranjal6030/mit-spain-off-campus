@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Girls Life | MIT SPAIN OFF-CAMPUS</title>
+
+  <link rel="icon" type="image/png" href="logomit.jpg">
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body class="reels-page">
+
+    <!-- <a href="index.html" class="back-btn">
+        ← HOME
+    </a> -->
+
+    <header class="reels-header">
+        <span>MIT SPAIN OFF-CAMPUS</span>
+
+        <h1>GIRLS<span>.</span></h1>
+
+        <p>
+            POV, moments, chaos & everything in between.
+        </p>
+    </header>
+
+
+    <main class="reels-feed">
+
+        <!-- VIDEO 01 -->
+        <article class="reel">
+            <video class="reel-video" loop playsinline controls>
+                <source src="girl 1.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>#01 • GIRLS LIFE</span>
+                <h2>Just a normal day.</h2>
+                <p>
+                    Somehow, normal never stays normal for long.
+                </p>
+            </div>
+        </article>
+
+
+        <!-- VIDEO 02 -->
+        <article class="reel">
+            <video class="reel-video" loop playsinline controls>
+                <source src="girl 2.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>#02 • GIRLS LIFE</span>
+                <h2>POV: The plan changed.</h2>
+                <p>
+                    The original plan was never going to survive.
+                </p>
+            </div>
+        </article>
+
+
+        <!-- VIDEO 03 -->
+        <article class="reel">
+            <video class="reel-video" loop playsinline controls>
+                <source src="girl 3.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>#03 • GIRLS LIFE</span>
+                <h2>When the squad is together.</h2>
+                <p>
+                    One group. Unlimited stories.
+                </p>
+            </div>
+        </article>
+
+
+        <!-- VIDEO 04 -->
+        <article class="reel">
+            <video class="reel-video" loop playsinline controls>
+                <source src="girl 4.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>#04 • GIRLS LIFE</span>
+                <h2>Another memory unlocked.</h2>
+                <p>
+                    Some moments deserve a replay.
+                </p>
+            </div>
+        </article>
+
+
+        <!-- VIDEO 05 -->
+        <article class="reel">
+            <video class="reel-video" loop playsinline controls>
+                <source src="girl 5.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>#05 • GIRLS LIFE</span>
+                <h2>And that's the story.</h2>
+                <p>
+                    Just another moment from college life.
+                </p>
+            </div>
+        </article>
+
+    </main>
+
+
+    <footer class="reels-footer">
+        © 2026 MIT SPAIN OFF-CAMPUS
+    </footer>
+
+
+    <script>
+
+        const videos = document.querySelectorAll(".reel-video");
+
+
+        /* Only one video plays at a time */
+
+        videos.forEach(video => {
+
+            video.addEventListener("play", () => {
+
+                videos.forEach(otherVideo => {
+
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+
+                });
+
+            });
+
+        });
+
+
+        /* Auto play when video comes into view */
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                const video = entry.target;
+
+                if (entry.isIntersecting) {
+
+                    video.play().catch(() => {});
+
+                } else {
+
+                    video.pause();
+
+                }
+
+            });
+
+        }, {
+
+            threshold: 0.65
+
+        });
+
+
+        videos.forEach(video => {
+
+            observer.observe(video);
+
+        });
+
+    </script>
+
+</body>
+
+</html>

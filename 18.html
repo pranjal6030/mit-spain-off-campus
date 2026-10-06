@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Restricted | MIT SPAIN OFF-CAMPUS</title>
+    <link rel="icon" type="image/png" href="logomit.jpg">
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body class="restricted-page">
+
+    <div class="restricted-box">
+
+        <div class="warning-icon">⚠</div>
+
+        <span>ATTENTION</span>
+
+        <h1>Restricted Content</h1>
+
+        <p>
+            This section is restricted. Please enter the authorized
+            password to continue.
+        </p>
+
+        <input type="password" id="password" placeholder="Enter password">
+
+        <button onclick="checkPassword()">
+            UNLOCK →
+        </button>
+
+        <p id="message"></p>
+
+        <!-- <a href="index.html" class="back-link">
+            ← GO BACK
+        </a> -->
+
+    </div>
+   
+
+<!-- <body class="reels-page">
+
+     <a href="index.html" class="back-btn">← HOME</a> -->
+
+    <!-- <header class="reels-header">
+        <span>MIT SPAIN OFF-CAMPUS</span>
+
+        <h1>SPECIAL<span>.</span></h1>
+
+        <p>
+            Oyeee hoyyee!!
+        </p>
+    </header> -->
+
+
+    <!-- <main class="reels-feed">
+
+        <article class="reel">
+
+            <video
+                class="reel-video"
+                src="comedy 4.mp4"
+                controls
+                playsinline>
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>SPECIAL</span> -->
+
+                <!-- <h2>Sorry!! we not support that.</h2>
+
+                <p>
+                    Just sit back and enjoy the moment.
+                </p>
+            </div>
+
+        </article>
+
+    </main> --> -->
+
+<!-- 
+    <footer class="reels-footer">
+        © 2026 MIT SPAIN OFF-CAMPUS
+    </footer> -->
+
+
+    <script>
+        const video = document.querySelector(".reel-video");
+
+        video.addEventListener("play", () => {
+            video.volume = 1;
+        });
+    </script>
+
+</body>
+</html>
+
+
+    <script>
+
+        function checkPassword() {
+
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+
+            if (password === "adult") {
+
+                message.textContent = "Access granted.";
+
+                // Replace with your non-adult restricted page
+                setTimeout(() => {
+                    window.location.href = "private.html";
+                }, 500);
+
+            } else {
+
+                message.textContent = "Incorrect password.";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>s

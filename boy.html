@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Boys Life | MIT SPAIN OFF-CAMPUS</title>
+
+    <link rel="icon" type="image/png" href="logomit.jpg">
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body class="reels-page">
+
+    <!-- <a href="index.html" class="back-btn">
+        ← HOME
+    </a> -->
+
+    <header class="reels-header">
+
+        <span>MIT SPAIN OFF-CAMPUS</span>
+
+        <h1>BOYS<span>.</span></h1>
+
+        <p>
+            Bro code, chaos, random plans & unforgettable moments.
+        </p>
+
+    </header>
+
+
+    <main class="reels-feed">
+
+        <!-- VIDEO 01 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="boys 1.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#01 • BOYS LIFE</span>
+
+                <h2>Bro had a plan.</h2>
+
+                <p>
+                    Nobody knew what the plan was.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 02 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="boys 2.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#02 • BOYS LIFE</span>
+
+                <h2>Just boys being boys.</h2>
+
+                <p>
+                    Somehow every simple plan becomes a story.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 03 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="boys 3.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#03 • BOYS LIFE</span>
+
+                <h2>Another memory unlocked.</h2>
+
+                <p>
+                    No script. No planning. Just pure chaos.
+                </p>
+
+            </div>
+
+        </article>
+
+    </main>
+
+
+    <footer class="reels-footer">
+
+        © 2026 MIT SPAIN OFF-CAMPUS
+
+    </footer>
+
+
+    <script>
+
+        const videos = document.querySelectorAll(".reel-video");
+
+
+        /* Only one video plays at a time */
+
+        videos.forEach(video => {
+
+            video.addEventListener("play", () => {
+
+                videos.forEach(otherVideo => {
+
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+
+                });
+
+            });
+
+        });
+
+
+        /* Auto play when video comes into view */
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                const video = entry.target;
+
+                if (entry.isIntersecting) {
+
+                    video.play().catch(() => {});
+
+                } else {
+
+                    video.pause();
+
+                }
+
+            });
+
+        }, {
+
+            threshold: 0.65
+
+        });
+
+
+        videos.forEach(video => {
+
+            observer.observe(video);
+
+        });
+
+    </script>
+
+</body>
+
+</html>

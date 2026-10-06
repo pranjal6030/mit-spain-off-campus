@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sad | MIT SPAIN OFF-CAMPUS</title>
+
+    <link rel="icon" type="image/png" href="logomit.jpg">
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body class="reels-page">
+
+    <!-- <a href="index.html" class="back-btn">
+        ← HOME
+    </a> -->
+
+
+    <header class="reels-header">
+
+        <span>MIT SPAIN OFF-CAMPUS</span>
+
+        <h1>SAD<span>.</span></h1>
+
+        <p>
+            Quiet moments, deep thoughts & feelings that stay.
+        </p>
+
+    </header>
+
+
+    <main class="reels-feed">
+
+
+        <!-- VIDEO 01 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="sad 1.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#01 • SAD</span>
+
+                <h2>Some nights feel different.</h2>
+
+                <p>
+                    When everything gets a little too quiet.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 02 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="sad 2.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#02 • SAD</span>
+
+                <h2>Not every feeling needs words.</h2>
+
+                <p>
+                    Sometimes silence says enough.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 03 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="sad 3.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#03 • SAD</span>
+
+                <h2>Memories hit differently.</h2>
+
+                <p>
+                    Some moments stay with us longer than expected.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 04 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="sad 4.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#04 • SAD</span>
+
+                <h2>It's okay to have quiet days.</h2>
+
+                <p>
+                    Tomorrow can bring a different moment.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 05 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="sad 5.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#05 • SAD</span>
+
+                <h2>Some memories stay.</h2>
+
+                <p>
+                    Time moves, but certain moments remain.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 06 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="sad 6.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#06 • SAD</span>
+
+                <h2>Lost in thoughts.</h2>
+
+                <p>
+                    Sometimes you just need a moment to yourself.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 07 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="sad 7.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#07 • SAD</span>
+
+                <h2>Things we never said.</h2>
+
+                <p>
+                    Some thoughts are easier to keep inside.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 08 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="sad 8.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#08 • SAD</span>
+
+                <h2>Better days are ahead.</h2>
+
+                <p>
+                    Every chapter eventually turns the page.
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </main>
+
+
+    <footer class="reels-footer">
+
+        © 2026 MIT SPAIN OFF-CAMPUS
+
+    </footer>
+
+
+    <script>
+
+        const videos = document.querySelectorAll(".reel-video");
+
+
+        /* Only one video plays at a time */
+
+        videos.forEach(video => {
+
+            video.addEventListener("play", () => {
+
+                videos.forEach(otherVideo => {
+
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+
+                });
+
+            });
+
+        });
+
+
+        /* Auto play when video comes into view */
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                const video = entry.target;
+
+                if (entry.isIntersecting) {
+
+                    video.play().catch(() => {});
+
+                } else {
+
+                    video.pause();
+
+                }
+
+            });
+
+        }, {
+
+            threshold: 0.65
+
+        });
+
+
+        videos.forEach(video => {
+
+            observer.observe(video);
+
+        });
+
+    </script>
+
+</body>
+
+</html>

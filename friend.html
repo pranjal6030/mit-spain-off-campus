@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Friendship | MIT SPAIN OFF-CAMPUS</title>
+
+    <link rel="icon" type="image/png" href="logomit.jpg">
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body class="reels-page">
+
+    <!-- <a href="index.html" class="back-btn">← HOME</a> -->
+
+    <header class="reels-header">
+        <span>MIT SPAIN OFF-CAMPUS</span>
+
+        <h1>FRIENDSHIP<span>.</span></h1>
+
+        <p>
+            Friends. Memories. Chaos. And everything in between.
+        </p>
+    </header>
+
+
+    <main class="reels-feed">
+
+        <!-- VIDEO 1 -->
+        <article class="reel">
+
+            <video
+                class="reel-video"
+                src="friend 1.mp4"
+                controls
+                playsinline>
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>FRIENDSHIP</span>
+                <h2>Those Crazy Moments.</h2>
+                <p>
+                    The moments that make friendship unforgettable.
+                </p>
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 2 -->
+        <article class="reel">
+
+            <video
+                class="reel-video"
+                src="friend 2.mp4"
+                controls
+                playsinline>
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>FRIENDSHIP</span>
+                <h2>Partners In Crime.</h2>
+                <p>
+                    Every group has that one crazy gang.
+                </p>
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 3 -->
+        <article class="reel">
+
+            <video
+                class="reel-video"
+                src="friend 3.mp4"
+                controls
+                playsinline>
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>FRIENDSHIP</span>
+                <h2>Good Times.</h2>
+                <p>
+                    Some memories are worth keeping forever.
+                </p>
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 4 -->
+        <article class="reel">
+
+            <video
+                class="reel-video"
+                src="friend 4.mp4"
+                controls
+                playsinline>
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>FRIENDSHIP</span>
+                <h2>Just Us.</h2>
+                <p>
+                    No plans. No filters. Just friends.
+                </p>
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 5 -->
+        <article class="reel">
+
+            <video
+                class="reel-video"
+                src="friend 5.mp4"
+                controls
+                playsinline>
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>FRIENDSHIP</span>
+                <h2>Forever Memories.</h2>
+                <p>
+                    Because the best stories are made together.
+                </p>
+            </div>
+
+        </article>
+
+        <article class="reel">
+
+            <video
+                class="reel-video"
+                src="friend 6.mp4"
+                controls
+                playsinline>
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>FRIENDSHIP</span>
+                <h2>Forever Memories.</h2>
+                <p>
+                    Because the best stories are made together.
+                </p>
+            </div>
+
+        </article>
+        
+        <article class="reel">
+
+            <video
+                class="reel-video"
+                src="friend 7.mp4"
+                controls
+                playsinline>
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>FRIENDSHIP</span>
+                <h2>Forever Memories.</h2>
+                <p>
+                    Because the best stories are made together.
+                </p>
+            </div>
+
+        </article>
+        
+        <article class="reel">
+
+            <video
+                class="reel-video"
+                src="friend 8.mp4"
+                controls
+                playsinline>
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>FRIENDSHIP</span>
+                <h2>Forever Memories.</h2>
+                <p>
+                    Because the best stories are made together.
+                </p>
+            </div>
+
+        </article>
+        
+        <article class="reel">
+
+            <video
+                class="reel-video"
+                src="friend 9.mp4"
+                controls
+                playsinline>
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+                <span>FRIENDSHIP</span>
+                <h2>Forever Memories.</h2>
+                <p>
+                    Because the best stories are made together.
+                </p>
+            </div>
+
+        </article>
+
+    </main>
+
+
+    <footer class="reels-footer">
+        © 2026 MIT SPAIN OFF-CAMPUS
+    </footer>
+
+
+    <script>
+        const videos = document.querySelectorAll(".reel-video");
+
+        videos.forEach(video => {
+
+            video.addEventListener("play", () => {
+
+                videos.forEach(otherVideo => {
+
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+
+                });
+
+            });
+
+        });
+
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                const video = entry.target;
+
+                if (entry.isIntersecting) {
+
+                    video.play().catch(() => {});
+
+                } else {
+
+                    video.pause();
+
+                }
+
+            });
+
+        }, {
+            threshold: 0.65
+        });
+
+
+        videos.forEach(video => {
+            observer.observe(video);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Funny | MIT SPAIN OFF-CAMPUS</title>
+
+   <link rel="icon" type="image/png" href="logomit.jpg">
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body class="reels-page">
+
+    <!-- BACK -->
+
+    <a href="index.html" class="back-btn">
+        ← HOME
+    </a>
+
+
+    <!-- PAGE TITLE -->
+
+    <header class="reels-header">
+
+        <span>MIT SPAIN OFF-CAMPUS</span>
+
+        <h1>FUNNY<span>.</span></h1>
+
+        <p>
+            Because your screen time needed another reason.
+        </p>
+
+    </header>
+
+
+    <!-- REELS -->
+
+    <main class="reels-feed">
+
+        <!-- REEL 1 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="comedy 1.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#01 • FUNNY</span>
+
+                <h2>Just another normal day.</h2>
+
+                <p>
+                    Everything was normal... until it wasn't.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- REEL 2 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="comedy 2.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#02 • FUNNY</span>
+
+                <h2>Things escalated quickly.</h2>
+
+                <p>
+                    Nobody planned this. That's the problem.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- REEL 3 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="comedy 3.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#03 • FUNNY</span>
+
+                <h2>Bro thought nobody noticed.</h2>
+
+                <p>
+                    Internet evidence says otherwise.
+                </p>
+
+            </div>
+
+        </article>
+
+        
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="comedy 4.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#04 • FUNNY</span>
+
+                <h2>Bro thought nobody noticed.</h2>
+
+                <p>
+                    Internet evidence says otherwise.
+                </p>
+
+            </div>
+
+        </article>
+
+    </main>
+
+
+    <footer class="reels-footer">
+        © 2026 MIT SPAIN OFF-CAMPUS
+    </footer>
+
+
+    <script>
+
+        const videos = document.querySelectorAll(".reel-video");
+
+        /* Only one video plays at a time */
+
+        videos.forEach(video => {
+
+            video.addEventListener("play", () => {
+
+                videos.forEach(otherVideo => {
+
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+
+                });
+
+            });
+
+        });
+
+
+        /* Auto play video when it enters screen */
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                const video = entry.target;
+
+                if (entry.isIntersecting) {
+
+                    video.play().catch(() => {});
+
+                } else {
+
+                    video.pause();
+
+                }
+
+            });
+
+        }, {
+            threshold: 0.65
+        });
+
+
+        videos.forEach(video => {
+            observer.observe(video);
+        });
+
+    </script>
+
+</body>
+
+</html>

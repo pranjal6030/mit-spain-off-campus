@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Relatable | MIT SPAIN OFF-CAMPUS</title>
+
+    <link rel="icon" type="image/png" href="logomit.jpg">
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body class="reels-page">
+
+    <!-- <a href="index.html" class="back-btn">
+        ← HOME
+    </a> -->
+
+
+    <header class="reels-header">
+
+        <span>MIT SPAIN OFF-CAMPUS</span>
+
+        <h1>RELATABLE<span>.</span></h1>
+
+        <p>
+            When a random reel feels a little too personal.
+        </p>
+
+    </header>
+
+
+    <main class="reels-feed">
+
+
+        <!-- VIDEO 01 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="relatable 1.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#01 • RELATABLE</span>
+
+                <h2>That's literally me.</h2>
+
+                <p>
+                    Tell me this hasn't happened to you.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 02 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="relatable 2.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#02 • RELATABLE</span>
+
+                <h2>Why is this so accurate?</h2>
+
+                <p>
+                    Somehow the internet knows everything.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 03 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="relatable 3.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#03 • RELATABLE</span>
+
+                <h2>Everyone does this.</h2>
+
+                <p>
+                    You thought nobody noticed.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- VIDEO 04 -->
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="relatable 4.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#04 • RELATABLE</span>
+
+                <h2>Okay, this is too real.</h2>
+
+                <p>
+                    Just another moment we all understand.
+                </p>
+
+            </div>
+
+        </article>
+
+        <article class="reel">
+
+            <video class="reel-video" loop playsinline controls>
+                <source src="relatable 5.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-gradient"></div>
+
+            <div class="reel-info">
+
+                <span>#05 • RELATABLE</span>
+
+                <h2>Okay, this is too real.</h2>
+
+                <p>
+                    Just another moment we all understand.
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </main>
+
+
+    <footer class="reels-footer">
+
+        © 2026 MIT SPAIN OFF-CAMPUS
+
+    </footer>
+
+
+    <script>
+
+        const videos = document.querySelectorAll(".reel-video");
+
+
+        /* Only one video plays at a time */
+
+        videos.forEach(video => {
+
+            video.addEventListener("play", () => {
+
+                videos.forEach(otherVideo => {
+
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+
+                });
+
+            });
+
+        });
+
+
+        /* Auto play when video comes into view */
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                const video = entry.target;
+
+                if (entry.isIntersecting) {
+
+                    video.play().catch(() => {});
+
+                } else {
+
+                    video.pause();
+
+                }
+
+            });
+
+        }, {
+
+            threshold: 0.65
+
+        });
+
+
+        videos.forEach(video => {
+
+            observer.observe(video);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
